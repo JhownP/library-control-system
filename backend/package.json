@@ -1,19 +1,23 @@
 {
   "name": "adonis-api-app",
-  "version": "4.1.0",
+  "version": "0.0.1",
   "adonis-version": "4.1.0",
-  "description": "Adonisjs boilerplate for API server with pre-configured JWT",
+  "description": "Library control management system of the Universidade Paulista",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "node ace test"
+    "start": "nodemon server.js",
+    "test": "nodemon ace test"
   },
   "keywords": [
     "adonisjs",
     "adonis-app"
   ],
-  "author": "",
-  "license": "UNLICENSED",
+  "author": {
+    "name": "Jonatas Pedroso e Thomaz Honorato",
+    "email": "jonatasarlindo@hotmail.com",
+    "url": "https://github.com/JhownP/library-control-system"
+  },
+  "license": "MIT",
   "private": true,
   "dependencies": {
     "@adonisjs/ace": "^5.0.8",
@@ -26,7 +30,9 @@
     "@adonisjs/lucid": "^6.1.3",
     "pg": "^7.12.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  },
   "autoload": {
     "App": "./app"
   }

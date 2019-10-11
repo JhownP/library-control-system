@@ -16,6 +16,9 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
+// Redireciona a URL base / para a URL /api/v1/unip/biblioteca/
+Route.get('/', async ({response}) => response.redirect('/api/v1/unip/biblioteca/'));
+
+Route.get('/api/v1/unip/biblioteca/', () => {
   return { greeting: 'Hello world in JSON' }
 })
