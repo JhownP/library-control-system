@@ -16,9 +16,20 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-// Redireciona a URL base / para a URL /api/v1/unip/biblioteca/
-Route.get('/', async ({response}) => response.redirect('/api/v1/unip/biblioteca/'));
+const baseUrl = '/api/v1/unip/biblioteca/';
+const description = 'API Desenvolvida para aplicação web e mobile - Biblioteca';
 
-Route.get('/api/v1/unip/biblioteca/', () => {
-  return { greeting: 'Hello world in JSON' }
-})
+Route.get('/', async ({response}) => response.redirect(baseUrl));
+
+Route.get(baseUrl, ({ request }) => {
+  return { mensagem: description}
+});
+
+Route.post(baseUrl + 'register', 'AuthController.register');
+Route.post(baseUrl + 'authenticate', 'AuthController.authenticate');
+
+// Autor
+
+// Livro
+
+// Emprestimo
