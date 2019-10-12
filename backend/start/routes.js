@@ -27,9 +27,3 @@ Route.get(baseUrl, ({ request }) => {
 
 Route.post(baseUrl + 'register', 'AuthController.register');
 Route.post(baseUrl + 'authenticate', 'AuthController.authenticate');
-
-// Autor
-
-// Livro
-
-// Emprestimo
