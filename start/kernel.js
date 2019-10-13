@@ -58,3 +58,4 @@ Server
   .registerGlobal(globalMiddleware)
   .registerNamed(namedMiddleware)
   .use(serverMiddleware)
+  .listen(process.env.PORT || 3000)
