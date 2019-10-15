@@ -13,3 +13,4 @@ Route.get(baseUrl, ({ request }) => {
 
 Route.post(baseUrl + 'register', 'AuthController.register');
 Route.post(baseUrl + 'authenticate', 'AuthController.authenticate');
+Route.get(baseUrl + 'hello', 'TestController.hello');
