@@ -1,5 +1,7 @@
 'use strict'
 
+const Livro = use('App/Models/Livro');
+
 class TestController {
     async hello({ request, response }) {
         const offset = request.input('offset')
