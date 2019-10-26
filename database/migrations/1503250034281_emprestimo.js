@@ -5,7 +5,7 @@ const Schema = use('Schema')
 
 class EmprestimoSchema extends Schema {
   up () {
-    this.create('emprestimo', (table) => {
+    this.create('emprestimos', (table) => {
       table.increments()
       table.integer('user_id').unsigned().references('id').inTable('users')
       table.date('date_start').notNullable()
@@ -16,7 +16,7 @@ class EmprestimoSchema extends Schema {
   }
 
   down () {
-    this.drop('emprestimo')
+    this.drop('emprestimos')
   }
 }
 

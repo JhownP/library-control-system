@@ -2,8 +2,19 @@
 
 class TestController {
     async hello({ request, response }) {
-        const name = request.input('name', 'Guess')
-        response.send({ message: 'Hello ' + name })
+        const offset = request.input('offset')
+        const limit = request.input('limit')
+
+        const livros = await Livro
+            .query()
+            .with('autor')
+            .paginate(offset, limit)
+
+        response.send({
+            'code': 200,
+            'status': 'success',
+            'data': livros
+        })
     }
 }
 

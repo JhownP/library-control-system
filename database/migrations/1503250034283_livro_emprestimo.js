@@ -5,16 +5,16 @@ const Schema = use('Schema')
 
 class LivroEmprestimoSchema extends Schema {
   up () {
-    this.create('livro-emprestimo', (table) => {
+    this.create('emprestimo_livro', (table) => {
       table.increments()
-      table.integer('emprestimo_id').unsigned().references('id').inTable('emprestimo')
-      table.integer('livro_id').unsigned().references('id').inTable('livro')
+      table.integer('emprestimo_id').unsigned().references('id').inTable('emprestimos')
+      table.integer('livro_id').unsigned().references('id').inTable('livros')
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('livro-emprestimo')
+    this.drop('emprestimo_livro')
   }
 }
 

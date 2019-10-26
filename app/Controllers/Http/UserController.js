@@ -1,75 +1,71 @@
 'use strict'
 
-const Emprestimo = use('App/Models/Emprestimo');
+const User = use('App/Models/User');
 
-class EmprestimoController {
+class UserController {
     async index({ request, response }) {
         const offset = request.input('offset')
         const limit = request.input('limit')
 
-        const emprestimo = await Emprestimo
+        const users = await User
             .query()
-            .with('livro')
-            .with('user')
             .paginate(offset, limit)
 
         response.send({
             'code': 200,
             'status': 'success',
-            'data': emprestimo
+            'data': users
         })
     }
 
     async show({ params, response }) {
         const id = params.id
-        const emprestimo = await Emprestimo.find(id)
+        const user = await User.find(id)
 
         response.send({
             'code': 200,
             'status': 'success',
-            'data': emprestimo
+            'data': user
         })
     }
 
     async store({ request, response }) {
         const all = request.all();
-        const emprestimo = new Emprestimo();
-        emprestimo.fill(all);
-        await emprestimo.save();
+        const user = new User();
+        user.fill(all);
+        await user.save();
 
         response.send({
             'code': 201,
             'status': 'success',
-            'data': emprestimo
+            'data': user
         })
     }
 
     async update({ params, request, response }) {
         const id = params.id;
         const all = request.all();
-        const emprestimo = await Emprestimo.query()
+        const user = await User.query()
             .where('id', id).update(all)
 
         response.send({
             'code': 200,
             'status': 'success',
-            'data': emprestimo
+            'data': user
         });
     }
 
     async delete({ params, response }) {
         const id = params.id
-        const emprestimo = await Emprestimo.find(id);
-        await emprestimo.livro().detach();
-        await emprestimo.user().detach();
-        await emprestimo.delete();
+        const user = await User.find(id);
+        await user.delete();
 
         response.send({
             'code': 200,
             'status': 'success',
-            'data': emprestimo
+            'data': user
         });
     }
 }
 
-module.exports = EmprestimoController
+module.exports = UserController

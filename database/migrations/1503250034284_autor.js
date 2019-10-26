@@ -5,7 +5,7 @@ const Schema = use('Schema')
 
 class AutorSchema extends Schema {
   up () {
-    this.create('autor', (table) => {
+    this.create('autors', (table) => {
       table.increments()
       table.string('name', 200).notNullable()
       table.timestamps()
@@ -13,7 +13,7 @@ class AutorSchema extends Schema {
   }
 
   down () {
-    this.drop('autor')
+    this.drop('autors')
   }
 }
 

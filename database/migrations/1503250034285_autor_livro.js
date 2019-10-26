@@ -4,17 +4,17 @@
 const Schema = use('Schema')
 
 class AutorLivroSchema extends Schema {
-  up () {
-    this.create('autor-livro', (table) => {
+  up() {
+    this.create('autor_livro', (table) => {
       table.increments()
-      table.integer('autor_id').unsigned().references('id').inTable('autor')
-      table.integer('livro_id').unsigned().references('id').inTable('livro')
+      table.integer('autor_id').unsigned().references('id').inTable('autors')
+      table.integer('livro_id').unsigned().references('id').inTable('livros')
       table.timestamps()
     })
   }
 
-  down () {
-    this.drop('autor-livro')
+  down() {
+    this.drop('autor_livro')
   }
 }
 
