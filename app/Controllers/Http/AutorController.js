@@ -21,8 +21,7 @@ class AutorController {
     }
 
     async show({ params, response }) {
-        const id = params.id
-        const autor = await Autor.find(id)
+        const autor = await Autor.findOrFail(params.id)
 
         response.send({
             'code': 200,
@@ -58,8 +57,7 @@ class AutorController {
     }
 
     async delete({ params, response }) {
-        const id = params.id
-        const autor = await Autor.find(id);
+        const autor = await Autor.findOrFail(params.id);
         await autor.livro().detach();
         await autor.delete();
 

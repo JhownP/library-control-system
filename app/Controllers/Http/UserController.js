@@ -19,8 +19,7 @@ class UserController {
     }
 
     async show({ params, response }) {
-        const id = params.id
-        const user = await User.find(id)
+        const user = await User.findOrFail(params.id);
 
         response.send({
             'code': 200,
@@ -56,8 +55,7 @@ class UserController {
     }
 
     async delete({ params, response }) {
-        const id = params.id
-        const user = await User.find(id);
+        const user = await User.findOrFail(params.id);
         await user.delete();
 
         response.send({

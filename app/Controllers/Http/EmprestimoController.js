@@ -21,8 +21,7 @@ class EmprestimoController {
     }
 
     async show({ params, response }) {
-        const id = params.id
-        const emprestimo = await Emprestimo.find(id)
+        const emprestimo = await Emprestimo.findOrFail(params.id)
 
         response.send({
             'code': 200,
@@ -58,8 +57,7 @@ class EmprestimoController {
     }
 
     async delete({ params, response }) {
-        const id = params.id
-        const emprestimo = await Emprestimo.find(id);
+        const emprestimo = await Emprestimo.findOrFail(params.id);
         await emprestimo.livro().detach();
         await emprestimo.user().detach();
         await emprestimo.delete();

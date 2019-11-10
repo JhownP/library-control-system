@@ -1,22 +1,19 @@
 /**
 *  @swagger
 *  definitions:
-*    User:
+*    Livro:
 *      type: object
 *      properties:
 *        id:
 *          type: int
-*        username:
+*        title:
 *          type: string
-*        email:
-*          type: string
-*        password:
-*          type: string
-*        phone:
+*        quantity:
+*          type: int
+*        photo:
 *          type: string
 *      required:
 *        - id
-*        - username
-*        - email
-*        - password
+*        - title
+*        - quantity
 */

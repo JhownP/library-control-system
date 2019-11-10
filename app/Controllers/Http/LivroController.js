@@ -20,8 +20,7 @@ class LivroController {
     }
 
     async show({ params, response }) {
-        const id = params.id
-        const livro = await Livro.find(id)
+        const livro = await Livro.findOrFail(params.id)
 
         response.send({
             'code': 200,
@@ -57,8 +56,7 @@ class LivroController {
     }
 
     async delete({ params, response }) {
-        const id = params.id
-        const livro = await Livro.find(id);
+        const livro = await Livro.findOrFail(params.id);
         await livro.autor().detach();
         await livro.emprestimo().detach();
         await livro.delete();
